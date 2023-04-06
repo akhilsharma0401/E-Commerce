@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+         fetch("https://dummyjson.com/products")
+        .then((a)=>{return a.json()})
+        .then((output)=>{console.log(output)
+            name(output.products)
+        })
+
+        function name(data){
+            for(let i=0; i<data.length; i++){
+            const one=document.createElement("img");
+            one.src=data[i].thumbnail;
+            const hed=document.createElement("h1")
+            hed.innerHTML=data[i].title
+            const des=document.createElement("p")
+            des.innerHTML=data[i].description
+          
+            document.querySelector("#box").append(one);
+            document.querySelector("#box").append(hed);
+            document.querySelector("#box").append(des);
+            }
+            
+        }
+    </script>
+</body>
+</html>
